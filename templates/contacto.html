@@ -1,0 +1,50 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+{% block title %} 
+Contacto
+{% endblock %}
+
+{% block content %}
+
+<section class="contact__container">
+    <h3 class="contact__title">Puesdes Acercarte a Nuestras Sedes Principales</h3>
+    <div class="contact__service">
+        <div class="contact__ubication">
+            <div class="contact__service">
+                <h4 class="ubication__title">Nuestros Horarios y Canchas</h4>
+                <p>Horario</p>
+                <p>Lunes - Miercoles - Viernes</p>
+                <h4>Cancha la Mesita Bucarica</h4>
+                <p>
+                    <span>Todas las categorias</span> <br>
+                    7:30am - 9:00am
+                </p>
+                <h4>Cancha la Mesita Bucarica</h4>
+                <p>
+                    <span>Sub 8 - Sub 10</span> <br> 
+                    3:30pm - 5:00pm
+                </p>
+                <p>
+                    <span>Sub Baby</span> <br> 
+                    5:15pm - 6:30pm
+                </p> 
+                <h4>Cancha de Futbol 11 Bucarica</h4> 
+                <p>
+                    <span>Sub 11 - Sub 13</span> <br> 
+                    3:30pm - 4:30pm <br>
+                    <span>Sub 15 - Juvenil - Femenina</span> <br> 
+                    4:30pm - 6:30pm <br>
+                    <span>Ascenso - Primera</span> <br>
+                    6:30pm - 8:00pm
+                </p>       
+            </div>
+            <div class="contact__img">
+                <img src="{% static "images/High five-amico.svg" %}" alt="">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+{% endblock %}

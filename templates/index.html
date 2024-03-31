@@ -1,0 +1,77 @@
+{% extends "layouts/app.html" %}
+{% load static %}
+{% block title %} 
+Leones de Floridablanca
+{% endblock %}
+
+{% block content %}
+
+
+<section class="container">
+    
+    <div class="container__index">
+        <h1 class="title__container">
+            Club de Futbol Leones de Floridablanca
+        </h1>
+        <p class="container__paragraph">
+            Mientras mas sueñes, mas lejos llegas. 
+        </p>
+    </div>
+    
+</section>
+
+<section class="secction__about">
+    <div class="conatiner__about">
+        <h3 class="title__about">¿Quienes Somos?</h3>
+        <p class="text__about">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, animi rerum culpa error fugit iure 
+        </p>
+    </div>
+</section>
+
+<section class="section__service">
+    <h3 class="title__service">Nuestros Sercivios</h3>
+    <div class="service__conatiner">
+
+        <div class="service__info">
+            <h4 class="title__services">Categorias</h4>
+            <p class="service__paragraph">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus voluptas harum 
+                magnam molestiae excepturi ad ea repellendus quasi sequi.
+            </p>
+        </div>
+    
+        <div class="service__info">
+    
+            <h4 class="title__services">Torneos</h4>
+            <p class="service__paragraph">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus voluptas harum 
+                magnam molestiae excepturi ad ea repellendus quasi sequi.
+            </p>
+        </div>
+    
+        <div class="service__info">
+            <h4 class="title__services">Nuestras Sedes</h4>
+            <p class="service__paragraph">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore necessitatibus voluptas harum 
+                magnam molestiae excepturi ad ea repellendus quasi sequi.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="woman">
+    <div class="woman__container">
+        <h4 class="woman__title">Nuestras Mujeres</h4>
+        <p class="woman__paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nesciunt deserunt molestiae veritatis ipsa officia doloribus, 
+            culpa commodi facilis praesentium a quidem, architecto recusandae aspernatur quam eum accusantium voluptatibus mollitia quia. Ipsum dignissimos 
+            temporibus beatae harum quia veniam ut voluptates.
+        </p>
+
+    </div>
+    <img src="{% static "images/Soccer-cuate.svg" %}" class="woman__image" alt="">
+</section>
+
+
+{% endblock %}
