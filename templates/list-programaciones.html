@@ -1,0 +1,27 @@
+{% extends "layouts/principal.html" %} {% load static %} 
+{% block title %}
+Listado Programaciones 
+{% endblock %} 
+{% block content %} 
+
+
+{% if es_profesor %}
+<a href="{% url 'crear_programacion' %}">Nueva programacion</a>
+{% endif %}
+
+
+<!-- Listado de programaciones -->
+<h2>Listado de Programaciones</h2>
+<ul>
+  {% for programacion in programaciones %}
+  <li>
+    {{ programacion.fecha }} a las {{ programacion.hora }} - {{ programacion.lugar }} 
+    {% if es_profesor %}
+    <a href="{% url 'editar_programacion' programacion.id %}">Editar</a>
+    <a href="{% url 'eliminar_programacion' programacion.id %}">Eliminar</a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

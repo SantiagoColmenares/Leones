@@ -1,1 +1,12 @@
 Leones/__pycache__/*
+
+gestion_L/__pycache__/*
+
+gestion_L/migrations/__pycache__/*
+
+gestion_L/__pycache__/__init__.cpython-310.pyc
+gestion_L/__pycache__/admin.cpython-310.pyc
+gestion_L/__pycache__/apps.cpython-310.pyc
+gestion_L/__pycache__/models.cpython-310.pyc
+gestion_L/migrations/__pycache__/0001_initial.cpython-310.pyc
+gestion_L/migrations/__pycache__/__init__.cpython-310.pyc

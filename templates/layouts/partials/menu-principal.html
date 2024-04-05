@@ -1,0 +1,12 @@
+{% load static %}
+<nav class="navbar reponsive" id="myNavbar">
+    <a href="{% url "inicio" %}"><img src="{% static "images/logo-1.png" %}" class="logo" alt=""></a>
+    <a href="{% url "listar_categorias" %}" class="nav__link">Categorias</a>
+    <a href="{% url "listar_destacados" %}" class="nav__link">Destacados</a>
+    <a href="{% url "listar_programaciones" %}" class="nav__link">Programaciones</a>
+    <a href="#" class="icon" onclick="myFunction()">
+        <img src="{% static "images/bars-solid.svg" %}" alt="">
+    </a>
+
+</nav>
+{% block content %}{% endblock %}

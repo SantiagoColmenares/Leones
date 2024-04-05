@@ -16,11 +16,5 @@ def contacto(request):
 
     return render(request, 'contacto.html', {})
 
-def log_in(request):
 
-    return render(request, 'login.html', {})
-
-def registro(request):
-
-    return render(request, 'registro.html', {})
 

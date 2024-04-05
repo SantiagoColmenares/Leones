@@ -1,0 +1,19 @@
+
+{% extends "layouts/principal.html" %}
+{% block content %}
+
+{% if es_profesor %}
+<a href="{% url 'agregar_destacado' %}">Agregar Jugador Destacado</a>
+{% endif %}
+<h2>Jugadores Destacados</h2>
+<div class="destacados">
+    {% for jugador in jugadores_destacados %}
+    <div class="jugador">
+        <img src="{{ jugador.foto.url }}" alt="{{ jugador.nombre }}">
+        <h3>{{ jugador.nombre }}</h3>
+        <p>Categoría: {{ jugador.categoria }}</p>
+        <p>Descripción: {{ jugador.descripcion }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

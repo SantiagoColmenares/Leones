@@ -1,0 +1,20 @@
+{% extends "layouts/principal.html" %}
+
+
+{% block content %}
+
+<h2>Usuarios de Categoría Primera</h2>
+
+<ul>
+    {% for usuario in usuarios_primera %}
+    <li>{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</li>
+    {% endfor %}
+</ul>
+<h2>Usuarios de Categoría Femenina</h2>
+<ul>
+    {% for usuario in usuarios_femenina %}
+    <li>{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock  %}

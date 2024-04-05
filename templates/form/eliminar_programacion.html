@@ -1,0 +1,6 @@
+<h2>¿Estás seguro que deseas eliminar esta programación?</h2>
+<p>{{ programacion.fecha }} a las {{ programacion.hora }} - {{ programacion.lugar }}</p>
+<form method="post" action="{% url 'eliminar_programacion' programacion.id %}">
+    {% csrf_token %}
+    <button type="submit">Eliminar</button>
+</form>

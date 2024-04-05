@@ -7,12 +7,3 @@ function myFunction() {
   }
 }
 
-
-const overlayBtns = document.querySelectorAll('.overlay-btn');
-
-overlayBtns.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    btn.classList.toggle('active');
-    btn.closest('.card').querySelector('.overlay').classList.toggle('active');
-  });
-});
