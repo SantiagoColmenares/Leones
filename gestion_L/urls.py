@@ -12,4 +12,8 @@ urlpatterns = [
     path('listar_destacados/', views.listar_destacados, name='listar_destacados'),
     path('editar_programacion/<int:pk>/', views.editar_programacion, name='editar_programacion'),
     path('eliminar_programacion/<int:pk>/', views.eliminar_programacion, name='eliminar_programacion'),
+    path('editar_destacado/<int:pk>/', views.editar_destacado, name='editar_destacado'),
+    path('eliminar_destacado/<int:pk>/', views.eliminar_destacado, name='eliminar_destacado'),
+    path('editar_usuario/<int:pk>/', views.editar_usuario, name='editar_usuario'),
+    path('eliminar_usuario/<int:pk>/', views.eliminar_usuario, name='eliminar_usuario'),
 ]

@@ -3,18 +3,184 @@
 
 {% block content %}
 
+<h2>Usuarios de Categoría Femenina</h2>
+<ul>
+    {% for usuario in usuarios_femenina %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Usuarios de Categoría Sub Baby</h2>
+<ul>
+    {% for usuario in usuarios_baby %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<h2>Usuarios de Categoría Sub 8</h2>
+<ul>
+    {% for usuario in usuarios_sub8 %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Usuarios de Categoría Sub 10</h2>
+<ul>
+    {% for usuario in usuarios_sub10 %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<h2>Usuarios de Categoría Sub 11</h2>
+<ul>
+    {% for usuario in usuarios_sub10 %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Usuarios de Categoría Sub 12</h2>
+<ul>
+    {% for usuario in usuarios_sub11 %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<h2>Usuarios de Categoría Sub 13</h2>
+<ul>
+    {% for usuario in usuarios_sub12 %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<h2>Usuarios de Categoría Sub 13</h2>
+<ul>
+    {% for usuario in usuarios_sub13 %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<h2>Usuarios de Categoría Sub 14</h2>
+<ul>
+    {% for usuario in usuarios_sub14 %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<h2>Usuarios de Categoría Sub 15</h2>
+<ul>
+    {% for usuario in usuarios_sub15 %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<h2>Usuarios de Categoría Sub 16</h2>
+<ul>
+    {% for usuario in usuarios_sub16 %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<h2>Usuarios de Categoría Acenso</h2>
+<ul>
+    {% for usuario in usuarios_ascenso %}
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+
 <h2>Usuarios de Categoría Primera</h2>
 
 <ul>
     {% for usuario in usuarios_primera %}
-    <li>{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</li>
+    <li>
+        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
+        {% if es_profesor %}
+        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        {% endif %}
+    </li>
     {% endfor %}
 </ul>
-<h2>Usuarios de Categoría Femenina</h2>
-<ul>
-    {% for usuario in usuarios_femenina %}
-    <li>{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</li>
-    {% endfor %}
-</ul>
+
 
 {% endblock  %}

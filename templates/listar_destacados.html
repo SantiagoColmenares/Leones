@@ -12,7 +12,11 @@
         <img src="{{ jugador.foto.url }}" alt="{{ jugador.nombre }}">
         <h3>{{ jugador.nombre }}</h3>
         <p>Categoría: {{ jugador.categoria }}</p>
-        <p>Descripción: {{ jugador.descripcion }}</p>
+        <p>Descripción: {{ jugador.descripcion }}</p>  
+        {% if es_profesor %}  
+        <a href="{% url 'editar_destacado' jugador.id %}">Editar</a>
+        <a href="{% url 'eliminar_destacado' jugador.id %}">Eliminar</a>
+        {% endif %}
     </div>
     {% endfor %}
 </div>

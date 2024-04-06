@@ -89,6 +89,9 @@ def listar_categorias(request):
     usuarios_ascenso = Usuario.objects.filter(categoria='Ascenso')
     usuarios_primera = Usuario.objects.filter(categoria='Primera')
     usuarios_femenina = Usuario.objects.filter(categoria='Femenina')
+    es_profesor = False
+    if request.user.is_authenticated and hasattr(request.user, 'usuario') and request.user.usuario.rol == 'profesor':
+        es_profesor = True
     return render(request, 'list-categorias.html', {'usuarios_primera': usuarios_primera,
                                                     'usuarios_baby':usuarios_baby,
                                                     'usuarios_sub8':usuarios_sub8,
@@ -100,7 +103,8 @@ def listar_categorias(request):
                                                     'usuarios_sub15':usuarios_sub15,
                                                     'usuarios_sub16':usuarios_sub16,
                                                     'usuarios_ascenso':usuarios_ascenso,
-                                                    'usuarios_femenina':usuarios_femenina})
+                                                    'usuarios_femenina':usuarios_femenina,
+                                                    'es_profesor':es_profesor})
 
 
 def crear_programacion(request):
@@ -187,3 +191,52 @@ def eliminar_programacion(request, pk):
     else:
         # Renderizar la confirmación de eliminación si se accede por GET
         return render(request, 'form/eliminar_programacion.html', {'programacion': programacion})
+    
+
+def editar_destacado(request, pk):
+    jugador = get_object_or_404(Jugador, pk=pk)
+    if request.method == 'POST':
+        # Procesar el formulario de edición si se envió
+        form = DestacadoForm(request.POST, request.FILES, instance=jugador)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_destacados')  # Redirige a la página de destacados después de editar
+    else:
+        # Renderizar el formulario de edición si se accede por GET
+        form = DestacadoForm(instance=jugador)
+    return render(request, 'form/editar_destacado.html', {'form': form})
+
+def eliminar_destacado(request, pk):
+    jugador = get_object_or_404(Jugador, pk=pk)
+    if request.method == 'POST':
+        # Eliminar el jugador si se envió una solicitud POST
+        jugador.delete()
+        return redirect('listar_destacados')  # Redirige a la página de destacados después de eliminar
+    else:
+        # Renderizar la confirmación de eliminación si se accede por GET
+        return render(request, 'form/eliminar_destacado.html', {'jugador': jugador})
+    
+def editar_usuario(request, pk):
+    usuario = get_object_or_404(Usuario, pk=pk)
+    categorias = ['Primera', 'Femenina', 'Sub Baby', 'Sub 8', 'Sub 10', 'Sub 11','Sub 12','Sub 13','Sub 14','Sub 15','Sub 16', 'Ascenso']   # Obtener todas las categorías
+    if request.method == 'POST':
+        usuario.nombre = request.POST.get('nombre')
+        usuario.apellido = request.POST.get('apellido')
+        usuario.categoria = request.POST.get('categoria')
+        usuario.edad = request.POST.get('edad')
+        usuario.save()  # Guardar los cambios en el usuario
+        return redirect('listar_categorias')  # Redirige a la lista de usuarios después de editar
+    else:
+        return render(request, 'form/editar_usuario.html', {'usuario': usuario, 'categorias': categorias})
+
+
+
+def eliminar_usuario(request, pk):
+    usuario = get_object_or_404(Usuario, pk=pk)
+    if request.method == 'POST':
+        # Eliminar el usuario si se envió una solicitud POST
+        usuario.delete()
+        return redirect('listar_categorias')  # Redirige a la lista de usuarios después de eliminar
+    else:
+        # Renderizar la confirmación de eliminación si se accede por GET
+        return render(request, 'form/eliminar_usuario.html', {'usuario': usuario})

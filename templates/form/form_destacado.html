@@ -1,5 +1,5 @@
 <h2>Agregar Jugador Destacado</h2>
-<form method="post" action="{% url "agregar_destacado" %}">
+<form method="post" action="{% url "agregar_destacado" %}" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Agregar Destacado</button>
