@@ -3,49 +3,6 @@
 <h2>Registro de Usuario</h2>
 <form method="POST" action="{% url "registro" %}">
     {% csrf_token %}
-    <label for="nombre">Nombre:</label><br>
-    <input type="text" id="nombre" name="nombre"><br><br>
-
-    <label for="apellido">Apellido:</label><br>
-    <input type="text" id="apellido" name="apellido"><br><br>
-
-    <label for="nombre_usuario">Nombre de usuario:</label><br>
-    <input type="text" id="nombre_usuario" name="nombre_usuario"><br><br>
-    
-    <label for="documento_identidad">Documento de identidad:</label><br>
-    <input type="text" id="documento_identidad" name="documento_identidad"><br><br>
-    
-    <label for="edad">Edad:</label><br>
-    <input type="number" id="edad" name="edad"><br><br>
-    
-    <label for="fecha_nacimiento">Fecha de nacimiento:</label><br>
-    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"><br><br>
-    
-    <label for="rol">Rol:</label><br>
-    <select id="rol" name="rol">
-        <option value="jugador">Jugador</option>
-        <option value="profesor">Profesor</option>
-    </select><br><br>
-    
-    
-    <label for="categoria">Categoría:</label><br>
-    <select id="categoria" name="categoria">
-        <option value="sub_baby">Sub Baby</option>
-        <option value="sub_8">Sub 8</option>
-        <option value="sub_10">Sub 10</option>
-        <option value="sub_11">Sub 11</option>
-        <option value="sub_12">Sub 12</option>
-        <option value="sub_13">Sub 13</option>
-        <option value="sub_14">Sub 14</option>
-        <option value="sub_15">Sub 15</option>
-        <option value="sub_16">Sub 16</option>
-        <option value="ascenso">Ascenso</option>
-        <option value="primera">Primera</option>
-        <option value="femenina">Femenina</option>
-    </select><br><br>
-    
-    <label for="telefono_contacto">Teléfono de contacto:</label><br>
-    <input type="text" id="telefono_contacto" name="telefono_contacto"><br><br>
-    
+    {{ form.as_p }}
     <button type="submit">Registrar</button>
 </form>

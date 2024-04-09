@@ -20,6 +20,10 @@ class Programacion(models.Model):
     hora = models.TimeField()
     lugar = models.CharField(max_length=100)
     profesor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    categoria = models.CharField(max_length=100,null=True ,choices=(('sub_baby', 'Sub Baby'), ('sub_8', 'Sub 8'), ('sub_10','Sub 10'), ('sub_11','Sub 11'), ('sub_12','Sub 12'), ('sub_13','Sub 13'), ('sub_14','Sub 14'), ('sub_15','Sub 15'), ('sub_16','Sub 16'), ('ascenso','Ascenso'), ('primera','Primera'), ('femenina','Femenina')))  
+
+    def __str__(self):
+        return f"{self.fecha} {self.hora} - {self.lugar}"
 
 class Usuario(models.Model):
     ROLES_CHOICES = (
@@ -38,3 +42,6 @@ class Usuario(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE, blank=True, null=True)
     categoria = models.CharField(max_length=100, choices=(('sub_baby', 'Sub Baby'), ('sub_8', 'Sub 8'), ('sub_10','Sub 10'), ('sub_11','Sub 11'), ('sub_12','Sub 12'), ('sub_13','Sub 13'), ('sub_14','Sub 14'), ('sub_15','Sub 15'), ('sub_16','Sub 16'), ('ascenso','Ascenso'), ('primera','Primera'), ('femenina','Femenina')))  # Choices definidos manualmente
     telefono_contacto = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.nombre} {self.apellido}"

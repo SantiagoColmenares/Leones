@@ -15,7 +15,7 @@ Listado Programaciones
 <ul>
   {% for programacion in programaciones %}
   <li>
-    {{ programacion.fecha }} a las {{ programacion.hora }} - {{ programacion.lugar }} 
+    {{ programacion.fecha }} a las {{ programacion.hora }} - {{ programacion.lugar }}- Categoria: {{ programacion.categoria }}
     {% if es_profesor %}
     <a href="{% url 'editar_programacion' programacion.id %}">Editar</a>
     <a href="{% url 'eliminar_programacion' programacion.id %}">Eliminar</a>

@@ -1,5 +1,5 @@
 {% extends "layouts/principal.html" %}
-
+{% load static %}
 
 {% block content %}
 
@@ -9,8 +9,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -22,8 +22,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -36,8 +36,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -49,8 +49,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -63,8 +63,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -76,8 +76,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -90,8 +90,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -104,8 +104,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -118,8 +118,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -132,8 +132,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -146,8 +146,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -160,8 +160,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}
@@ -175,8 +175,8 @@
     <li>
         {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
         {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}">Editar</a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar</a>
+        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
+        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
         {% endif %}
     </li>
     {% endfor %}

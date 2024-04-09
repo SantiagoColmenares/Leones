@@ -4,8 +4,9 @@ from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from .models import Equipo, Programacion, Usuario, User, Jugador
-from .forms import DestacadoForm
+from django.contrib.auth.hashers import check_password
+from .models import Programacion, Usuario, User, Jugador
+from .forms import DestacadoForm, UsuarioForm, ProgramacionForm
 from datetime import datetime
 
 
@@ -35,46 +36,21 @@ def log_in(request):
         return render(request, 'login.html')
 
 
-
 def registro(request):
     if request.method == 'POST':
-        # Recibir los datos del formulario
-        nombre_usuario = request.POST.get('nombre_usuario')
-        documento_identidad = request.POST.get('documento_identidad')
-        nombre = request.POST.get('nombre')
-        apellido = request.POST.get('apellido')
-        edad = request.POST.get('edad')
-        fecha_nacimiento = request.POST.get('fecha_nacimiento')
-        rol = request.POST.get('rol')
-        categoria = request.POST.get('categoria')
-        telefono_contacto = request.POST.get('telefono_contacto')
-
-        # Crear un nuevo usuario
-        nuevo_usuario = User.objects.create(
-            username=nombre_usuario,
-            password=documento_identidad,  # Hash de la contraseña
-        )
-
-        # Guardar los datos adicionales del usuario
-        usuario = Usuario.objects.create(
-            user=nuevo_usuario,
-            nombre_usuario=nombre_usuario,
-            nombre = nombre,
-            apellido = apellido,
-            documento_identidad=documento_identidad,
-            edad=edad,
-            fecha_nacimiento=fecha_nacimiento,
-            rol=rol,
-            # equipo_id=equipo_id,
-            categoria=categoria,
-            telefono_contacto=telefono_contacto
-        )
-
-        # Redirigir a alguna página de éxito
-        return redirect('registro')  
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            # Crear un usuario de Django
+            nuevo_usuario = User.objects.create_user(username=form.cleaned_data['nombre_usuario'], password=form.cleaned_data['documento_identidad'])
+            if nuevo_usuario:
+                # Guardar el formulario asociado al usuario creado
+                usuario = form.save(commit=False)
+                usuario.user_id = nuevo_usuario.id
+                usuario.save()
+                return redirect('login')  # Redireccionar a donde quieras después de guardar el formulario
     else:
-        # Si el método de la solicitud no es POST, mostrar el formulario vacío
-        return render(request, 'registro.html')
+        form = UsuarioForm()
+    return render(request, 'registro.html', {'form': form})
 
 def listar_categorias(request):
     usuarios_baby = Usuario.objects.filter(categoria='Sub Baby')
@@ -111,18 +87,15 @@ def crear_programacion(request):
     profesores = Usuario.objects.filter(rol='Profesor')
     if request.method == 'POST':
         # Si se está enviando el formulario con datos
-        fecha = request.POST.get('fecha')
-        hora = request.POST.get('hora')
-        lugar = request.POST.get('lugar')
-        profesor_id = request.POST.get('profesor')  
-
-        nueva_programacion = Programacion(fecha=fecha, hora=hora, lugar=lugar, profesor_id = profesor_id)
-        nueva_programacion.save()
-
-        return redirect('crear_programacion')  
+        form = ProgramacionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('crear_programacion')  
     else:
+        # Si se está cargando la página por primera vez
+        form = ProgramacionForm()
         
-        return render(request, 'crear_programacion.html', {'profesores': profesores})
+    return render(request, 'crear_programacion.html', {'form': form})
 
 
 
@@ -164,23 +137,19 @@ def listar_destacados(request):
 
 
 def editar_programacion(request, pk):
-    profesores = Usuario.objects.filter(rol='Profesor')
     programacion = get_object_or_404(Programacion, pk=pk)
     
     if request.method == 'POST':
-        # Procesar el formulario de edición si se envió
-        programacion.fecha = request.POST.get('fecha')
-        programacion.hora = request.POST.get('hora')
-        programacion.lugar = request.POST.get('lugar')
-        profesor_id = request.POST.get('profesor')  
-        programacion.profesor_id = profesor_id
-        programacion.save()
-        
-        return redirect('listar_programaciones')  # Redirige a la página de listado de programaciones después de editar
-    
+        form = ProgramacionForm(request.POST, instance=programacion)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_programaciones')
     else:
-        # Renderizar el formulario de edición si se accede por GET
-        return render(request, 'form/editar_programacion.html', {'programacion': programacion, 'profesores': profesores})
+        form = ProgramacionForm(instance=programacion)
+        
+    return render(request, 'form/editar_programacion.html', {'form': form, 'programacion': programacion})
+  # Redirige a la página de listado de programaciones después de editar
+    
 
 def eliminar_programacion(request, pk):
     programacion = get_object_or_404(Programacion, pk=pk)

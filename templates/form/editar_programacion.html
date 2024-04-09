@@ -1,20 +1,5 @@
 <form method="post" action="{% url 'editar_programacion' programacion.id %}">
     {% csrf_token %}
-    <label for="fecha">Fecha:</label>
-    <input type="date" id="fecha" name="fecha" value="{{ programacion.fecha }}">
-    <br>
-    <label for="hora">Hora:</label>
-    <input type="time" id="hora" name="hora" value="{{ programacion.hora }}">
-    <br>
-    <label for="lugar">Lugar:</label>
-    <input type="text" id="lugar" name="lugar" value="{{ programacion.lugar }}">
-    <br>
-    <label for="profesor">Profesor:</label>
-    <select id="profesor" name="profesor">
-        {% for profesor in profesores %}
-            <option value="{{ profesor.id }}" {% if profesor.id == programacion.profesor.id %}selected{% endif %}>{{ profesor.nombre }} {{ profesor.apellido }}</option>
-        {% endfor %}
-    </select>
-    <br>
+    {{ form.as_p }}
     <button type="submit">Guardar Cambios</button>
 </form>

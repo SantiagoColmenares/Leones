@@ -1,13 +1,8 @@
 
 <h2>Iniciar sesión</h2>
 
-<form method="post" action="{% url 'log_in' %}">
+<form method="post">
     {% csrf_token %}
-    <label for="nombre_usuario">Nombre de usuario:</label><br>
-    <input type="text" id="nombre_usuario" name="nombre_usuario"><br>
-
-    <label for="documento_identidad">Documento de identidad:</label><br>
-    <input type="password" id="documento_identidad" name="documento_identidad"><br>
-
-    <button type="submit">Iniciar Sesion</button>
+    {{ form.as_p }}
+    <button type="submit">Iniciar sesión</button>
 </form>
