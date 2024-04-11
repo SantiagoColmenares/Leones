@@ -1,6 +1,11 @@
+{% extends "layouts/principal.html" %}
+
+
+{% block content %}
 <h2>Editar Jugador Destacado</h2>
-<form method="post">
+<form method="post" action="{% url 'editar_destacado' jugador.id %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Guardar Cambios</button>
 </form>
+{% endblock %}

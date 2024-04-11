@@ -23,4 +23,9 @@ class ProgramacionForm(forms.ModelForm):
             'fecha': forms.DateInput(attrs={'type': 'date'}),
             'hora': forms.TimeInput(attrs={'type': 'time'}),
         }
+
+class UsuarioEditForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nombre', 'apellido', 'categoria', 'edad', 'documento_identidad']
         

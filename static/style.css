@@ -513,6 +513,27 @@ tbody tr:hover {
     width: 40px;
 }
 
+/* ESTILOS LISTADO DE CATEGORIAS */
+
+.container__category{
+    text-align: center;
+    margin-top: 60px;
+}
+
+.title__category{
+    font-size: 2rem;
+    color: var(--clr-itp-1);
+    padding: 10px;
+    text-align: center;
+}
+
+.button__link .icon__forms{
+    width: 30px;
+}
+
+
+
+
 
 
 /* MEDIA RESPONSIVE SCREEN */

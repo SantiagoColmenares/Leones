@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import check_password
 from .models import Programacion, Usuario, User, Jugador
-from .forms import DestacadoForm, UsuarioForm, ProgramacionForm
+from .forms import DestacadoForm, UsuarioForm, ProgramacionForm, UsuarioEditForm
 from datetime import datetime
 
 
@@ -173,7 +173,7 @@ def editar_destacado(request, pk):
     else:
         # Renderizar el formulario de edición si se accede por GET
         form = DestacadoForm(instance=jugador)
-    return render(request, 'form/editar_destacado.html', {'form': form})
+    return render(request, 'form/editar_destacado.html', {'form': form, 'jugador':jugador})
 
 def eliminar_destacado(request, pk):
     jugador = get_object_or_404(Jugador, pk=pk)
@@ -189,14 +189,16 @@ def editar_usuario(request, pk):
     usuario = get_object_or_404(Usuario, pk=pk)
     categorias = ['Primera', 'Femenina', 'Sub Baby', 'Sub 8', 'Sub 10', 'Sub 11','Sub 12','Sub 13','Sub 14','Sub 15','Sub 16', 'Ascenso']   # Obtener todas las categorías
     if request.method == 'POST':
-        usuario.nombre = request.POST.get('nombre')
-        usuario.apellido = request.POST.get('apellido')
-        usuario.categoria = request.POST.get('categoria')
-        usuario.edad = request.POST.get('edad')
-        usuario.save()  # Guardar los cambios en el usuario
-        return redirect('listar_categorias')  # Redirige a la lista de usuarios después de editar
+        form = UsuarioEditForm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_categorias')
     else:
-        return render(request, 'form/editar_usuario.html', {'usuario': usuario, 'categorias': categorias})
+        form = UsuarioEditForm(instance=usuario)
+        
+    return render(request, 'form/editar_usuario.html', {'form': form, 'categorias':categorias, 'usuario':usuario})
+    
+
 
 
 

@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-
-<h2>Usuarios de Categoría Femenina</h2>
+<div class="container__category">
+    <h2 class="title__category">Usuarios de Categoría Femenina</h2>
 <ul>
     {% for usuario in usuarios_femenina %}
     <li>
@@ -16,7 +16,7 @@
     {% endfor %}
 </ul>
 
-<h2>Usuarios de Categoría Sub Baby</h2>
+<h2 class="title__category">Usuarios de Categoría Sub Baby</h2>
 <ul>
     {% for usuario in usuarios_baby %}
     <li>
@@ -30,7 +30,7 @@
 </ul>
 
 
-<h2>Usuarios de Categoría Sub 8</h2>
+<h2 class="title__category">Usuarios de Categoría Sub 8</h2>
 <ul>
     {% for usuario in usuarios_sub8 %}
     <li>
@@ -43,7 +43,7 @@
     {% endfor %}
 </ul>
 
-<h2>Usuarios de Categoría Sub 10</h2>
+<h2 class="title__category">Usuarios de Categoría Sub 10</h2>
 <ul>
     {% for usuario in usuarios_sub10 %}
     <li>
@@ -57,7 +57,7 @@
 </ul>
 
 
-<h2>Usuarios de Categoría Sub 11</h2>
+<h2 class="title__category">Usuarios de Categoría Sub 11</h2>
 <ul>
     {% for usuario in usuarios_sub10 %}
     <li>
@@ -70,7 +70,7 @@
     {% endfor %}
 </ul>
 
-<h2>Usuarios de Categoría Sub 12</h2>
+<h2 class="title__category">Usuarios de Categoría Sub 12</h2>
 <ul>
     {% for usuario in usuarios_sub11 %}
     <li>
@@ -84,21 +84,7 @@
 </ul>
 
 
-<h2>Usuarios de Categoría Sub 13</h2>
-<ul>
-    {% for usuario in usuarios_sub12 %}
-    <li>
-        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-        {% if es_profesor %}
-        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/pen-to-square-solid.svg" %}" alt="" class= "icon__forms"></a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link"><img src="{% static "images/trash-solid.svg" %}" alt="" class= "icon__forms"></a>
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul>
-
-
-<h2>Usuarios de Categoría Sub 13</h2>
+<h2 class="title__category">Usuarios de Categoría Sub 13</h2>
 <ul>
     {% for usuario in usuarios_sub13 %}
     <li>
@@ -112,7 +98,7 @@
 </ul>
 
 
-<h2>Usuarios de Categoría Sub 14</h2>
+<h2 class="title__category">Usuarios de Categoría Sub 14</h2>
 <ul>
     {% for usuario in usuarios_sub14 %}
     <li>
@@ -126,7 +112,7 @@
 </ul>
 
 
-<h2>Usuarios de Categoría Sub 15</h2>
+<h2 class="title__category">Usuarios de Categoría Sub 15</h2>
 <ul>
     {% for usuario in usuarios_sub15 %}
     <li>
@@ -140,7 +126,7 @@
 </ul>
 
 
-<h2>Usuarios de Categoría Sub 16</h2>
+<h2 class="title__category">Usuarios de Categoría Sub 16</h2>
 <ul>
     {% for usuario in usuarios_sub16 %}
     <li>
@@ -154,7 +140,7 @@
 </ul>
 
 
-<h2>Usuarios de Categoría Acenso</h2>
+<h2 class="title__category">Usuarios de Categoría Acenso</h2>
 <ul>
     {% for usuario in usuarios_ascenso %}
     <li>
@@ -168,7 +154,7 @@
 </ul>
 
 
-<h2>Usuarios de Categoría Primera</h2>
+<h2 class="title__category">Usuarios de Categoría Primera</h2>
 
 <ul>
     {% for usuario in usuarios_primera %}
@@ -181,6 +167,6 @@
     </li>
     {% endfor %}
 </ul>
-
-
+</div>
 {% endblock  %}
+
