@@ -1,8 +1,11 @@
 
-<h2>Iniciar sesión</h2>
+<h2 class="title__forms">Iniciar Sesión</h2>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Iniciar sesión</button>
-</form>
+
+<div class="form_container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button type="submit" class="form__button">Iniciar sesión</button>
+    </form>
+</div>

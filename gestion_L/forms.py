@@ -11,7 +11,25 @@ class UsuarioForm(forms.ModelForm):
         model = Usuario
         fields = ['nombre', 'apellido', 'nombre_usuario', 'documento_identidad', 'edad', 'fecha_nacimiento', 'rol', 'categoria', 'telefono_contacto']
         widgets = {
-            'fecha_nacimiento': forms.DateInput(attrs={'type': 'date'})
+            'nombre': forms.TextInput(attrs={'type':'text',
+                                             'class':'form__control'}),
+            'apellido': forms.TextInput(attrs={'type':'text',
+                                             'class':'form__control'}),
+            'nombre_usuario': forms.TextInput(attrs={'type':'text',
+                                             'class':'form__control'}),
+            'documento_identidad': forms.NumberInput(attrs={'type':'text',
+                                             'class':'form__control'}),
+            'edad': forms.NumberInput(attrs={'type':'number',
+                                             'class':'form__control'}),
+            'fecha_nacimiento': forms.DateInput(attrs={'type': 'date',
+                                                       'class':'form__control'}),
+
+            'rol': forms.Select(attrs={'class':'form__control'}),
+            
+            'categoria': forms.Select(attrs={'class':'form__control'}),
+
+            'telefono_contacto': forms.TextInput(attrs={'type':'text',
+                                             'class':'form__control'}),
         }
 
 
