@@ -1,7 +1,10 @@
-<h2>Agregar Jugador Destacado</h2>
+<h2 class="title__forms">Agregar Jugador Destacado</h2>
+
+<div class="form_container form_container--destacado">
 <form method="post" action="{% url "agregar_destacado" %}" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Agregar Destacado</button>
+    {{ form.as_div }}
+    <button type="submit" class="form__button">Agregar Destacado</button>
 </form>
-<a href="{% url 'listar_destacados' %}">Ir a Destacados</a>
+<button type="button" class="link__button link__button--destacado"><a href="{% url 'listar_destacados' %}">Ir a Destacados</a></button>
+</div>

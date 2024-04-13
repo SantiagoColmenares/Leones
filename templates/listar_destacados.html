@@ -3,9 +3,9 @@
 {% block content %}
 
 {% if es_profesor %}
-<a href="{% url 'agregar_destacado' %}">Agregar Jugador Destacado</a>
+<button type="button"  class="link__button"><a href="{% url 'agregar_destacado' %}">Agregar Jugador Destacado</a></button>
 {% endif %}
-<h2>Jugadores Destacados</h2>
+<h2 class="title__list">Jugadores Destacados</h2>
 <div class="destacados">
     {% for jugador in jugadores_destacados %}
     <div class="jugador">
@@ -14,8 +14,10 @@
         <p>Categoría: {{ jugador.categoria }}</p>
         <p>Descripción: {{ jugador.descripcion }}</p>  
         {% if es_profesor %}  
-        <a href="{% url 'editar_destacado' jugador.id %}">Editar</a>
-        <a href="{% url 'eliminar_destacado' jugador.id %}">Eliminar</a>
+        <div class="form__option">
+            <a href="{% url 'editar_destacado' jugador.id %}" class="link__button link__option">Editar</a>
+            <a href="{% url 'eliminar_destacado' jugador.id %}" class="link__button link__option link__option--color">Eliminar</a>
+        </div>
         {% endif %}
     </div>
     {% endfor %}
