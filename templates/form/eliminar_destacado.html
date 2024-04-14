@@ -2,10 +2,16 @@
 
 
 {% block content %}
+<div class="form__show">
 <h2>Confirmar Eliminación</h2>
 <p>¿Estás seguro de que deseas eliminar al jugador "{{ jugador.nombre }}"?</p>
-<form method="post" action="{% url "eliminar_destacado" jugador.id %}">
-    {% csrf_token %}
-    <button type="submit">Eliminar</button>
-</form>
+
+
+<div class="">
+    <form method="post" action="{% url "eliminar_destacado" jugador.id %}" class="form__delete">
+        {% csrf_token %}
+        <button type="submit" class="form__button">Eliminar</button>
+    </form>
+</div>
+</div>
 {% endblock %}

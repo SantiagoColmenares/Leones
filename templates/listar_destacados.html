@@ -1,22 +1,23 @@
 
 {% extends "layouts/principal.html" %}
+{% block title %}Destacados{% endblock %}
 {% block content %}
 
 {% if es_profesor %}
 <button type="button"  class="link__button"><a href="{% url 'agregar_destacado' %}">Agregar Jugador Destacado</a></button>
 {% endif %}
-<h2 class="title__list">Jugadores Destacados</h2>
+<h2 class="title__list title__list--color">Jugadores Destacados</h2>
 <div class="destacados">
     {% for jugador in jugadores_destacados %}
     <div class="jugador">
         <img src="{{ jugador.foto.url }}" alt="{{ jugador.nombre }}">
-        <h3>{{ jugador.nombre }}</h3>
-        <p>Categoría: {{ jugador.categoria }}</p>
-        <p>Descripción: {{ jugador.descripcion }}</p>  
+        <h3 class="name__player">{{ jugador.nombre }}</h3>
+        <p class="name__category">Categoría: <br> {{ jugador.categoria }}</p>
+        <p class="description">Descripción:<br> {{ jugador.descripcion }}</p>  
         {% if es_profesor %}  
         <div class="form__option">
-            <a href="{% url 'editar_destacado' jugador.id %}" class="link__button link__option">Editar</a>
-            <a href="{% url 'eliminar_destacado' jugador.id %}" class="link__button link__option link__option--color">Eliminar</a>
+            <a href="{% url 'editar_destacado' jugador.id %}" class="link__option">Editar</a>
+            <a href="{% url 'eliminar_destacado' jugador.id %}" class="link__option link__option--color">Eliminar</a>
         </div>
         {% endif %}
     </div>

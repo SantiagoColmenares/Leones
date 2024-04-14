@@ -2,10 +2,13 @@
 
 
 {% block content %}
-<h2>Editar Jugador Destacado</h2>
+<h2 class="title__forms">Editar Jugador Destacado</h2>
+
+<div class="form_container form_container--login">
 <form method="post" action="{% url 'editar_destacado' jugador.id %}">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_div }}
     <button type="submit">Guardar Cambios</button>
 </form>
+</div>
 {% endblock %}
