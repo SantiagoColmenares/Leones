@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.hashers import check_password
 from .models import Programacion, Usuario, User, Jugador
 from .forms import DestacadoForm, UsuarioForm, ProgramacionForm, UsuarioEditForm
 from datetime import datetime

@@ -3,10 +3,12 @@
 
 
 {% block content %}
-<h2>Editar Usuario</h2>
-<form method="post" action="{% url 'editar_usuario' usuario.pk %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar Cambios</button>
-</form>
+<h2 class="title__forms">Editar Usuario</h2>
+<div class="form_container form_container--login">
+    <form method="post" action="{% url 'editar_usuario' usuario.pk %}">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button type="submit" class="form__button">Guardar Cambios</button>
+    </form>
+</div>
 {% endblock %}

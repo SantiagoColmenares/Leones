@@ -6,19 +6,21 @@ Listado Programaciones
 
 
 {% if es_profesor %}
-<a href="{% url 'crear_programacion' %}">Nueva programacion</a>
+<button type="button" class="link__button"><a href="{% url 'crear_programacion' %}">Nueva programacion</a></button>
 {% endif %}
 
 
 <!-- Listado de programaciones -->
-<h2>Listado de Programaciones</h2>
-<ul>
+<h2 class="title__list title__list--color">Listado de Programaciones</h2>
+<ul class="render__list">
   {% for programacion in programaciones %}
-  <li>
+  <li class="list__option">
     {{ programacion.fecha }} a las {{ programacion.hora }} - {{ programacion.lugar }}- Categoria: {{ programacion.categoria }}
     {% if es_profesor %}
-    <a href="{% url 'editar_programacion' programacion.id %}">Editar</a>
-    <a href="{% url 'eliminar_programacion' programacion.id %}">Eliminar</a>
+    <div class="form__option">
+      <a href="{% url 'editar_programacion' programacion.id %}" class="link__option">Editar</a>
+      <a href="{% url 'eliminar_programacion' programacion.id %}" class="link__option">Eliminar</a>
+    </div>
     {% endif %}
   </li>
   {% endfor %}

@@ -2,10 +2,14 @@
 {% extends "layouts/principal.html" %}
 
 {% block content %}
-<h2>Confirmar Eliminación</h2>
-<p>¿Estás seguro de que deseas eliminar al usuario "{{ usuario.nombre }} {{ usuario.apellido }}"?</p>
-<form method="post" action="{% url 'eliminar_usuario' usuario.id %}">
-    {% csrf_token %}
-    <button type="submit">Eliminar</button>
-</form>
+<div class="form__show">
+    <h2>Confirmar Eliminación</h2>
+    <p>¿Estás seguro de que deseas eliminar al usuario "{{ usuario.nombre }} {{ usuario.apellido }}"?</p>
+    <div>
+        <form method="post" action="{% url 'eliminar_usuario' usuario.id %}">
+            {% csrf_token %}
+            <button type="submit" class="form__button">Eliminar</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
