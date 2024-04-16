@@ -77,13 +77,20 @@ WSGI_APPLICATION = 'Leones.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Leones_db',
+        'NAME': 'leones_db',
         'USER':'santiago',
         'PASSWORD':'0423',
         'HOST':'localhost',
         'PORT':'3306'
     }
-}
+} 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -136,3 +143,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'principal'
+

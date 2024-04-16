@@ -52,14 +52,14 @@ def registro(request):
 
 def listar_categorias(request):
     usuarios_baby = Usuario.objects.filter(categoria='Sub Baby')
-    usuarios_sub8 = Usuario.objects.filter(categoria='Sub 8')
-    usuarios_sub10 = Usuario.objects.filter(categoria='Sub 10')
-    usuarios_sub11 = Usuario.objects.filter(categoria='Sub 11')
-    usuarios_sub12 = Usuario.objects.filter(categoria='Sub 12')
-    usuarios_sub13 = Usuario.objects.filter(categoria='Sub 13')
-    usuarios_sub14 = Usuario.objects.filter(categoria='Sub 14')
-    usuarios_sub15 = Usuario.objects.filter(categoria='Sub 15')
-    usuarios_sub16 = Usuario.objects.filter(categoria='Sub 16')
+    usuarios_sub8 = Usuario.objects.filter(categoria='Sub_8')
+    usuarios_sub10 = Usuario.objects.filter(categoria='Sub_10')
+    usuarios_sub11 = Usuario.objects.filter(categoria='Sub_11')
+    usuarios_sub12 = Usuario.objects.filter(categoria='Sub_12')
+    usuarios_sub13 = Usuario.objects.filter(categoria='Sub_13')
+    usuarios_sub14 = Usuario.objects.filter(categoria='Sub_14')
+    usuarios_sub15 = Usuario.objects.filter(categoria='Sub_15')
+    usuarios_sub16 = Usuario.objects.filter(categoria='Sub_16')
     usuarios_ascenso = Usuario.objects.filter(categoria='Ascenso')
     usuarios_primera = Usuario.objects.filter(categoria='Primera')
     usuarios_femenina = Usuario.objects.filter(categoria='Femenina')
@@ -185,7 +185,12 @@ def eliminar_destacado(request, pk):
     
 def editar_usuario(request, pk):
     usuario = get_object_or_404(Usuario, pk=pk)
-    categorias = ['Primera', 'Femenina', 'Sub Baby', 'Sub 8', 'Sub 10', 'Sub 11','Sub 12','Sub 13','Sub 14','Sub 15','Sub 16', 'Ascenso']   # Obtener todas las categorías
+    categorias = ['Primera', 'Femenina', 'Sub Baby', 'Sub 8', 'Sub 10', 'Sub 11','Sub 12','Sub 13','Sub 14','Sub 15','Sub 16', 'Ascenso']
+
+    # Calcula la edad del usuario antes de renderizar el formulario
+    usuario.edad = usuario.calcular_edad()
+    usuario.save()
+
     if request.method == 'POST':
         form = UsuarioEditForm(request.POST, instance=usuario)
         if form.is_valid():
@@ -193,7 +198,7 @@ def editar_usuario(request, pk):
             return redirect('listar_categorias')
     else:
         form = UsuarioEditForm(instance=usuario)
-        
+
     return render(request, 'form/editar_usuario.html', {'form': form, 'categorias':categorias, 'usuario':usuario})
     
 

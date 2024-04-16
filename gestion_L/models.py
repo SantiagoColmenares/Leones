@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 from django.contrib.auth.models import User
 
 class Equipo(models.Model):
@@ -45,3 +46,9 @@ class Usuario(models.Model):
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
+    
+    def calcular_edad(self):
+        today = datetime.now().date()
+        birth_date = self.fecha_nacimiento
+        age_years = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+        return age_years
