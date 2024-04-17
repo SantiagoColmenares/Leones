@@ -2,244 +2,212 @@
 {% load static %}
 
 {% block content %}
-<div class="container__category">
-<div class="category__list">
-    <h2 class="title__category">Categoría Femenina</h2>
-    <ul>
-        {% for usuario in usuarios_femenina %}
-        <li class="category__item">
-            {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-            {% if es_profesor %} <br><br>
-            <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-                Editar
-            </a>
-            <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-                Eliminar
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+<div class="category-container">
+    <div class="category">
+        <h2 class="category-title">Categoría Femenina</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_femenina %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<div class="category__list">
-    <h2 class="title__category">Categoría Sub Baby</h2>
-<ul>
-    {% for usuario in usuarios_baby %}
-    <li class="category__item">
-        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-        {% if es_profesor %} <br><br>
-        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-            Editar
-        </a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-            Eliminar
-        </a>
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul>
-</div>
+    <div class="category">
+        <h2 class="category-title">Categoría Sub Baby</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_baby %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
+    <div class="category">
+        <h2 class="category-title">Categoría Sub 8</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_sub8 %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<div class="category__list">
-    <h2 class="title__category">Categoría Sub 8</h2>
-<ul>
-    {% for usuario in usuarios_sub8 %}
-    <li class="category__item">
-        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-        {% if es_profesor %} <br><br>
-        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-            Editar
-        </a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-            Eliminar
-        </a>
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul>
-</div>
+    <div class="category">
+        <h2 class="category-title">Categoría Sub 10</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_sub10 %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<div class="category__list">
-    <h2 class="title__category">Categoría Sub 10</h2>
-<ul>
-    {% for usuario in usuarios_sub10 %}
-    <li class="category__item">
-        {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-        {% if es_profesor %} <br><br>
-        <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-            Editar
-        </a>
-        <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-            Eliminar
-        </a>
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul>
-</div>
+    <div class="category">
+        <h2 class="category-title">Categoría Sub 11</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_sub11 %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<div class="category__list">
-    <h2 class="title__category">Categoría Sub 11</h2>
-    <ul>
-        {% for usuario in usuarios_sub10 %}
-        <li class="category__item">
-            {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-            {% if es_profesor %} <br><br>
-                    <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-                Editar
-            </a>
-            <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-                Eliminar
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+    <div class="category">
+        <h2 class="category-title">Categoría Sub 12</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_sub12 %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
+    <div class="category">
+        <h2 class="category-title">Categoría Sub 13</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_sub13 %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<div class="category__list">
-    <h2 class="title__category">Categoría Sub 12</h2>
-    <ul>
-        {% for usuario in usuarios_sub11 %}
-        <li class="category__item">
-            {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-            {% if es_profesor %} <br><br>
-            <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-                Editar
-            </a>
-            <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-                Eliminar
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+    <div class="category">
+        <h2 class="category-title">Categoría Sub 14</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_sub14 %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<div class="category__list">
-    <h2 class="title__category">Categoría Sub 13</h2>
-    <ul>
-        {% for usuario in usuarios_sub13 %}
-        <li class="category__item">
-            {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-            {% if es_profesor %} <br><br>
-                    <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-                Editar
-            </a>
-            <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-                Eliminar
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+    <div class="category">
+        <h2 class="category-title">Categoría Sub 13</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_sub13 %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
+    <div class="category">
+        <h2 class="category-title">Categoría Sub 14</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_sub14 %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<div class="category__list">
-    <h2 class="title__category">Categoría Sub 14</h2>
-    <ul>
-        {% for usuario in usuarios_sub14 %}
-        <li class="category__item">
-            {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-            {% if es_profesor %} <br><br>
-                    <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-                Editar
-            </a>
-            <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-                Eliminar
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+    <div class="category">
+        <h2 class="category-title">Categoría Ascenso</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_ascenso %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
+    <div class="category">
+        <h2 class="category-title">Categoría Primera</h2>
+        <ul class="category-list">
+            {% for usuario in usuarios_primera %}
+            <li class="category-item">
+                <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
+                {% if es_profesor %}
+                <div class="category-buttons">
+                    <a href="{% url 'editar_usuario' usuario.id %}" class="button-link">Editar</a>
+                    <a href="{% url 'eliminar_usuario' usuario.id %}" class="button-link">Eliminar</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<div class="category__list">
-    <h2 class="title__category">Categoría Sub 15</h2>
-    <ul>
-        {% for usuario in usuarios_sub15 %}
-        <li class="category__item">
-            {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-            {% if es_profesor %} <br><br>
-                    <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-                Editar
-            </a>
-            <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-                Eliminar
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-
-
-
-<div class="category__list">
-    <h2 class="title__category">Categoría Sub 16</h2>
-    <ul>
-        {% for usuario in usuarios_sub16 %}
-        <li class="category__item">
-            {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-            {% if es_profesor %} <br><br>
-            <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-                Editar
-            </a>
-            <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-                Eliminar
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-
-<div class="category__list">
-    <h2 class="title__category">Categoría Acenso</h2>
-    <ul>
-        {% for usuario in usuarios_ascenso %}
-        <li class="category__item">
-            {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-            {% if es_profesor %} <br><br>
-            <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-                Editar
-            </a>
-            <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-                Eliminar
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-
-
-
-<div class="category__list">
-    <h2 class="title__category">Categoría Primera</h2>
-
-    <ul>
-        {% for usuario in usuarios_primera %}
-        <li class="category__item">
-            {{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}
-            {% if es_profesor %} <br><br>
-            <a href="{% url 'editar_usuario' usuario.id %}" class="button__link">
-                Editar
-            </a>
-            <a href="{% url 'eliminar_usuario' usuario.id %}" class="button__link">
-                Eliminar
-            </a>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-
+    <!-- Repite el mismo patrón para las demás categorías -->
 </div>
 {% endblock  %}
 

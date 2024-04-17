@@ -51,4 +51,4 @@ class Usuario(models.Model):
         today = datetime.now().date()
         birth_date = self.fecha_nacimiento
         age_years = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
-        return age_years
+        return age_years 

@@ -10,7 +10,7 @@ class DestacadoForm(forms.ModelForm):
 class UsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ['nombre', 'apellido', 'nombre_usuario', 'documento_identidad', 'edad', 'fecha_nacimiento', 'rol', 'categoria', 'telefono_contacto']
+        fields = ['nombre', 'apellido', 'nombre_usuario', 'documento_identidad', 'fecha_nacimiento', 'edad', 'rol', 'categoria', 'telefono_contacto']
         widgets = {
             'nombre': forms.TextInput(attrs={'type':'text',
                                              'class':'form__control'}),
@@ -20,10 +20,14 @@ class UsuarioForm(forms.ModelForm):
                                              'class':'form__control'}),
             'documento_identidad': forms.NumberInput(attrs={'type':'text',
                                              'class':'form__control'}),
-            'edad': forms.NumberInput(attrs={'type':'number',
-                                             'class':'form__control'}),
             'fecha_nacimiento': forms.DateInput(attrs={'type': 'date',
-                                                       'class':'form__control'}),
+                                                       'class':'form__control',
+                                                       }),
+
+            'edad': forms.NumberInput(attrs={'type':'number',
+                                             'class':'form__control',
+                                            }),
+            
 
             'rol': forms.Select(attrs={'class':'form__control'}),
             
