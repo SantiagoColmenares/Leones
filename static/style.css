@@ -154,7 +154,7 @@ body{
 }
 
 
-.secction__about{
+.secction__about {
     gap: 1.5rem;
     height: 100vh;
     width: 100%;
@@ -163,89 +163,104 @@ body{
     align-items: center;
 }
 
-.conatiner__about{
+.conatiner__about {
     text-align: center;
     font-size: 1.5rem;
 }
 
-.title__about{
+.title__about {
     padding: 2.5rem;
     color: var(--clr-itp-2);
 }
 
-.title__about:hover{
+.title__about:hover {
     font-size: 2.5rem;
     transition: ease 2s;
 }
 
-.title__about:not(:hover){
+.title__about:not(:hover) {
     font-size: 2rem;
     transition: ease 2s;
 }
 
-.text__about{
+.text__about {
     color: var(--clr-itp-1);
-    margin: 0 240px 0 240px;
+    /* margin: 0 240px 0 240px; */
 }
 
-.section__service{
-    display: flex;
-    justify-content: center;
+.service__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    flex-direction: column;
-    height: 60vh;
-}
-
-.title__service{
-    font-size: 2.5rem;
-    text-align: center;
-    color: var(--clr-itp-2);
-}
-
-.service__conatiner{
-    display: flex;
-    flex-direction: row;
     color: var(--clr-itp-1);
+    padding: 1rem;
+    justify-content: center;
+    text-align: center;
+    min-height: 500px; /* Agrega una altura mínima al contenedor */
 }
 
-.service__info{
+/* Estilos para la información de servicio */
+.service__info {
     padding: 3rem;
+    grid-column: span 1;
+}
+
+/* Estilos para el título de servicios */
+.title__service {
+    text-align: center;
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
 }
 
 .title__services{
-    text-align: center;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
+    color: var(--clr-itp-2);
 }
 
-.service__paragraph{
+/* Estilos para el párrafo de servicio */
+.service__paragraph {
     font-size: 1.3rem;
     padding: 2.5rem;
     text-align: center;
+    grid-column: span 1;
 }
 
-.woman{
+.woman {
     height: 100vh;
     display: flex;
     align-items: center;
+    flex-direction: column; /* Cambiado para que los elementos se apilen verticalmente */
 }
 
-.woman__title{
+.woman__container{
+    text-align: center;
+}
+
+.woman__title {
+    grid-column: 1 / 3; /* El título ocupa ambas columnas */
     text-align: center;
     font-size: 2.5rem;
-    color: var(--clr-itp-7);
+    color: var(--clr-itp-2);
 }
-.woman__paragraph{
+
+/* Estilos para el párrafo de woman */
+.woman__paragraph {
+    grid-column: 1; /* El párrafo ocupa la primera columna */
     padding: 2rem;
     font-size: 1.5rem;
     color: var(--clr-itp-1);
     font-weight: bold;
 }
 
-.woman__image{
+/* Estilos para la imagen de woman */
+.woman__image {
+    grid-column: 2; /* La imagen ocupa la segunda columna */
     height: 500px;
+    width: 100%; /* Ajusta el ancho de la imagen para que ocupe toda la columna */
 }
 
-.woman__important{
+/* Estilos para la parte importante de woman */
+.woman__important {
     font-size: 2.5rem;
     color: var(--clr-itp-3);
     font-style: italic;
@@ -425,49 +440,6 @@ body{
     display: flex; /* Muestra el overlay al hacer hover en la card */
 }
 
-.overlay-btn {
-    background: transparent;
-    border: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute; 
-    bottom: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px; 
-    cursor: pointer;
-}
-
-.overlay-icon {
-    font-size: 1.2rem; 
-    color: var(--clr-itp-1);
-    transition: transform 0.3s ease;
-}
-  
-  
-.overlay-btn:hover .overlay-icon {
-    transform: rotate(180deg);
-}
-  
-  
-  .overlay {
-    display: none;
-}
-
-.overlay-btn.active .overlay {
-    display: flex;
-}
-  
-  
-.overlay-btn.active .overlay-icon {
-    transform: rotate(180deg);
-}
-
-  
-/* Falta terminar los estilos de las categorias*/
-
 
 /* ESTILOS DOCUMENTOS */
 
@@ -617,17 +589,20 @@ tbody tr:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    padding: 50px;
 }
 
 .category {
     border: 1px solid var(--clr-itp-1);
     border-radius: 5px;
     padding: 10px;
+    background-color: #f9f9f9;
 }
 
 .category-title {
     font-size: 20px;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .category-list {
@@ -646,6 +621,73 @@ tbody tr:hover {
 
 .category-buttons {
     margin-top: 5px;
+}
+
+.title__list {
+    font-size: 24px;
+    color: var(--clr-itp-2);
+    margin-bottom: 20px;
+}
+
+.table__container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 1rem; /* Añade un poco de padding */
+}
+
+/* Estilos para la tabla de programación */
+.programacion__table {
+    width: 100%; /* La tabla ocupa todo el ancho del contenedor */
+    border-collapse: collapse; /* Elimina el espacio entre celdas */
+    margin-bottom: 1rem; /* Espacio debajo de la tabla */
+    border: 1px solid #ddd; /* Bordes alrededor de la tabla */
+}
+
+.programacion__table thead{
+    background-color: var(--clr-itp-10);
+}
+
+/* Estilos para los encabezados de la tabla */
+.programacion__table th, .programacion__table td {
+    padding: 0.75rem; /* Espaciado interno */
+    border-bottom: 1px solid #ddd; /* Línea inferior para separar */
+}
+
+/* Estilos para los enlaces de acciones */
+.link__option {
+    color: #007bff; /* Color azul para los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    margin-right: 0.5rem; /* Espacio entre enlaces */
+    padding: 0.5rem; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Transiciones suaves */
+}
+
+/* Efecto de hover sobre los enlaces */
+.link__option:hover {
+    background-color: #e0f7fa; /* Cambia el color de fondo al pasar el cursor */
+    color: #0056b3; /* Cambia el color del texto al pasar el cursor */
+}
+
+/* Efecto de hover sobre las filas de la tabla */
+.programacion__table tr:hover {
+    background-color: #f1f9ff; /* Cambia el color de fondo al pasar el cursor */
+}
+
+
+.form__option {
+    margin-top: 10px;
+}
+
+.link__option {
+    margin-right: 10px;
+    text-decoration: none;
+    color: var(--clr-itp-3);
+}
+
+.link__option:hover {
+    text-decoration: underline;
+    color: var(--clr-itp-4);
 }
 
 .button-link {
@@ -955,10 +997,6 @@ form{
     .wave__container{
         text-align: center;
     }
-
-    .woman__title{
-        color: var(--clr-itp-2);
-    }
     
     .woman__image{
         display: none;
@@ -1089,4 +1127,123 @@ form{
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    .text__about {
+        max-width: 100%; /* Limita el ancho del texto al ancho de la pantalla */
+        margin: 0 auto; /* Centra el texto horizontalmente */
+    }
+
+    .section__service {
+        grid-template-columns: 1fr; /* Cambia a una columna única para servicios */
+        gap: 1rem; /* Ajusta el espacio entre elementos */
+    }
+
+    .service__container {
+        margin-bottom: 1rem; /* Agrega espacio entre los servicios */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Ajusta los estilos de la información de servicio */
+    .service__info {
+        padding: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Ajusta el tamaño de fuente para el título de servicio */
+    .title__service {
+        font-size: 2rem;
+    }
+
+    /* Ajusta el tamaño de fuente para el título de servicios */
+    .title__services {
+        font-size: 1.5rem;
+    }
+
+    /* Ajusta el tamaño de fuente para el párrafo de servicio */
+    .service__paragraph {
+        font-size: 1.1rem;
+    }
+
+    .woman {
+        height: auto;
+    }
+
+    /* Ajusta los estilos de la imagen de mujer */
+    .woman__image {
+        height: auto; /* Ajusta la altura automáticamente */
+        width: 100%; /* La imagen ocupará todo el ancho de la pantalla */
+    }
+
+    /* Ajusta el tamaño de fuente para el título de mujer */
+    .woman__title {
+        font-size: 2rem;
+    }
+
+    /* Ajusta el tamaño de fuente para la parte importante */
+    .woman__important {
+        font-size: 2rem;
+    }
+
+    /* Ajusta el tamaño de fuente para el párrafo de mujer */
+    .woman__paragraph {
+        font-size: 1.2rem;
+    }
+
+    .programacion__table th, .programacion__table td {
+        display: block; /* Cambia a bloque para cada celda */
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        box-sizing: border-box; /* Asegura que el padding y borde se consideren en el ancho */
+        padding: 0.5rem 1rem; /* Ajusta el espaciado interno */
+        border-bottom: 1px solid #ddd; /* Línea inferior para separar */
+        font-size: 1.5rem;
+    }
+
+    /* Oculta los encabezados en cada fila y los muestra como un elemento de lista */
+    .programacion__table th {
+        display: none; /* Oculta los encabezados */
+    }
+
+}
+
+
+/* Media query para tamaños de pantalla medianos (tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .title__service {
+        font-size: 2.2rem;
+    }
+
+    /* Ajusta el tamaño de fuente para el título de servicios */
+    .title__services {
+        font-size: 1.6rem;
+    }
+
+    /* Ajusta el tamaño de fuente para el párrafo de servicio */
+    .service__paragraph {
+        font-size: 1.2rem;
+    }
+    .woman {
+        height: auto;
+    }
+
+    /* Ajusta los estilos de la imagen de mujer */
+    .woman__image {
+        height: auto;
+        width: 80%; /* Ajusta el ancho para que no sea demasiado grande */
+        margin-bottom: 50px;
+    }
+
+    /* Ajusta el tamaño de fuente para el título de mujer */
+    .woman__title {
+        font-size: 2.3rem;
+    }
+
+    /* Ajusta el tamaño de fuente para la parte importante */
+    .woman__important {
+        font-size: 2.2rem;
+    }
+
+    /* Ajusta el tamaño de fuente para el párrafo de mujer */
+    .woman__paragraph {
+        font-size: 1.3rem;
+    }
 }

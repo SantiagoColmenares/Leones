@@ -11,19 +11,36 @@ Listado Programaciones
 
 
 <!-- Listado de programaciones -->
-<h2 class="title__list title__list--color">Listado de Programaciones</h2>
-<ul class="render__list">
-  {% for programacion in programaciones %}
-  <li class="list__option">
-    {{ programacion.fecha }} a las {{ programacion.hora }} - {{ programacion.lugar }}- Categoria: {{ programacion.categoria }}
-    {% if es_profesor %}
-    <div class="form__option">
-      <a href="{% url 'editar_programacion' programacion.id %}" class="link__option">Editar</a>
-      <a href="{% url 'eliminar_programacion' programacion.id %}" class="link__option">Eliminar</a>
-    </div>
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
+<div class="table__container">
+  <table class="programacion__table">
+      <thead>
+          <tr>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Lugar</th>
+              <th>Categoría</th>
+              {% if es_profesor %}
+              <th>Acciones</th>
+              {% endif %}
+          </tr>
+      </thead>
+      <tbody>
+          {% for programacion in programaciones %}
+          <tr>
+              <td>{{ programacion.fecha }}</td>
+              <td>{{ programacion.hora }}</td>
+              <td>{{ programacion.lugar }}</td>
+              <td>{{ programacion.categoria }}</td>
+              {% if es_profesor %}
+              <td>
+                  <a href="{% url 'editar_programacion' programacion.id %}" class="link__option">Editar</a>
+                  <a href="{% url 'eliminar_programacion' programacion.id %}" class="link__option">Eliminar</a>
+              </td>
+              {% endif %}
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
 
 {% endblock %}

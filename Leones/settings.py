@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Leones.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'leones_db',
+        'NAME': 'Leones_db',
         'USER':'santiago',
         'PASSWORD':'0423',
         'HOST':'localhost',
@@ -144,3 +144,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'principal'
 
+LOGIN_URL = '/login/'
