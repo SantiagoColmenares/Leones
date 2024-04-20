@@ -20,7 +20,8 @@ class UsuarioForm(forms.ModelForm):
                                              'class':'form__control',
                                              'data-error-target': '#username-error'}),
             'documento_identidad': forms.NumberInput(attrs={'type':'text',
-                                             'class':'form__control'}),
+                                             'class':'form__control',
+                                             'max_length': 10}),
             'fecha_nacimiento': forms.DateInput(attrs={'type': 'date',
                                                        'class':'form__control',
                                                        }),
@@ -35,7 +36,8 @@ class UsuarioForm(forms.ModelForm):
             'categoria': forms.Select(attrs={'class':'form__control'}),
 
             'telefono_contacto': forms.TextInput(attrs={'type':'text',
-                                             'class':'form__control'}),
+                                             'class':'form__control',
+                                             'max_length': 10}),
         }
 
     def clean(self):
