@@ -50,6 +50,7 @@ def registro(request):
         form = UsuarioForm()
     return render(request, 'registro.html', {'form': form})
 
+@login_required
 def listar_categorias(request):
     usuarios_baby = Usuario.objects.filter(categoria='Sub Baby')
     usuarios_sub8 = Usuario.objects.filter(categoria='Sub_8')
@@ -80,7 +81,7 @@ def listar_categorias(request):
                                                     'usuarios_femenina':usuarios_femenina,
                                                     'es_profesor':es_profesor})
 
-
+@login_required
 def crear_programacion(request):
     profesores = Usuario.objects.filter(rol='Profesor')
     if request.method == 'POST':
@@ -108,10 +109,7 @@ def listar_programaciones(request):
 
     return render(request, 'list-programaciones.html', {'programaciones': programaciones, 'es_profesor': es_profesor})
 
-
-
-
-
+@login_required
 def agregar_destacado(request):
     if request.method == 'POST':
         form = DestacadoForm(request.POST, request.FILES)
@@ -122,7 +120,7 @@ def agregar_destacado(request):
         form = DestacadoForm()
     return render(request, 'destacado.html', {'form': form})
 
-
+@login_required
 def listar_destacados(request):
     jugadores_destacados = Jugador.objects.all()  # Obtener todos los jugadores destacados
     
@@ -133,7 +131,7 @@ def listar_destacados(request):
     
     return render(request, 'listar_destacados.html', {'jugadores_destacados': jugadores_destacados, 'es_profesor': es_profesor})
 
-
+@login_required
 def editar_programacion(request, pk):
     programacion = get_object_or_404(Programacion, pk=pk)
     
@@ -148,7 +146,7 @@ def editar_programacion(request, pk):
     return render(request, 'form/editar_programacion.html', {'form': form, 'programacion': programacion})
   # Redirige a la página de listado de programaciones después de editar
     
-
+@login_required
 def eliminar_programacion(request, pk):
     programacion = get_object_or_404(Programacion, pk=pk)
     if request.method == 'POST':
@@ -159,7 +157,7 @@ def eliminar_programacion(request, pk):
         # Renderizar la confirmación de eliminación si se accede por GET
         return render(request, 'form/eliminar_programacion.html', {'programacion': programacion})
     
-
+@login_required
 def editar_destacado(request, pk):
     jugador = get_object_or_404(Jugador, pk=pk)
     if request.method == 'POST':
@@ -173,6 +171,7 @@ def editar_destacado(request, pk):
         form = DestacadoForm(instance=jugador)
     return render(request, 'form/editar_destacado.html', {'form': form, 'jugador':jugador})
 
+@login_required
 def eliminar_destacado(request, pk):
     jugador = get_object_or_404(Jugador, pk=pk)
     if request.method == 'POST':
@@ -183,6 +182,7 @@ def eliminar_destacado(request, pk):
         # Renderizar la confirmación de eliminación si se accede por GET
         return render(request, 'form/eliminar_destacado.html', {'jugador': jugador})
     
+@login_required
 def editar_usuario(request, pk):
     usuario = get_object_or_404(Usuario, pk=pk)
     categorias = ['Primera', 'Femenina', 'Sub Baby', 'Sub 8', 'Sub 10', 'Sub 11','Sub 12','Sub 13','Sub 14','Sub 15','Sub 16', 'Ascenso']
@@ -204,7 +204,7 @@ def editar_usuario(request, pk):
 
 
 
-
+@login_required
 def eliminar_usuario(request, pk):
     usuario = get_object_or_404(Usuario, pk=pk)
     if request.method == 'POST':

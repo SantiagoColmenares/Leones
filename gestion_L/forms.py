@@ -85,6 +85,10 @@ class UsuarioEditForm(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = ['nombre', 'apellido', 'categoria', 'edad', 'documento_identidad']
+        widgets = {
+            'edad': forms.NumberInput(attrs={'type': 'number',
+                                           'readonly':'readonly'})
+        }
         
 
         

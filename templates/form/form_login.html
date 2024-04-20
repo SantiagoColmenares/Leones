@@ -2,7 +2,7 @@
 <h2 class="title__forms">Iniciar Sesión</h2>
 
 
-<div class="form_container">
+<div class="form_container" action= "{% url 'login' %}">
     <form method="post">
         {% csrf_token %}
         {{ form.as_div }}

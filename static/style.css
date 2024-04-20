@@ -727,6 +727,13 @@ tbody tr:hover {
     padding: 20px;
 }
 
+.form_container select{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
 .form_container input[type="text"],
 .form_container textarea {
     width: 100%;
@@ -763,7 +770,10 @@ tbody tr:hover {
 }
 
 .form_container div input{
-    padding: 3px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
     border: 0px solid;
     border-radius: 8px;
 }
@@ -798,6 +808,10 @@ form{
     background: rgba(82, 75, 229, 0.394);
     padding: 15px;
 }
+
+
+
+
 
 
 /* ESTILOS VISTA DESTACADOS */
@@ -922,13 +936,42 @@ form{
     text-align: center;
 }
 
-
-
-.form__delete{
-    display: flex;
-    justify-content: center;
+form.form__logout {
+    border: none;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
 }
 
+
+
+.nav__link {
+    color: #ffffff; /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado del texto */
+    padding: 10px 15px; /* Espacio alrededor del texto */
+    transition: color 0.3s; /* Transición suave al cambiar el color */
+}
+
+/* Cambia el color del enlace al pasar el mouse */
+.nav__link:hover {
+    color: #cccccc;
+}
+
+/* Estilo específico para el botón de cierre de sesión */
+.link__logout {
+    background-color: #ff4d4d; /* Color de fondo rojo */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espacio alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a pointer */
+    transition: background-color 0.3s; /* Transición suave al cambiar el color */
+    color: #ffffff; /* Color del texto blanco */
+}
+
+/* Cambia el color de fondo al pasar el mouse */
+.link__logout:hover {
+    background-color: #cc0000;
+}
 
 /* MEDIA RESPONSIVE SCREEN */
 @media only screen and (max-width: 600px) {

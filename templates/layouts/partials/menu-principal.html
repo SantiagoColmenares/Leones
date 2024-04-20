@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="navbar responsive" id="myNavbar">
-    <a href="{% url "principal" %}" class="logo-link">
-        <img src="{% static "images/logo-1.png" %}" class="logo" alt="">
+    <a href="{% url 'principal' %}" class="logo-link">
+        <img src="{% static 'images/logo-1.png' %}" class="logo" alt="">
     </a>
     <div class="menu-toggle" onclick="myFunction()">
         <span class="bar"></span>
@@ -9,10 +9,16 @@
         <span class="bar"></span>
     </div>
     <ul class="nav-links">
-        <li><a href="{% url "listar_categorias" %}" class="nav__link active">Categorias</a></li>
-        <li><a href="{% url "listar_destacados" %}" class="nav__link">Destacados</a></li>
-        <li><a href="{% url "listar_programaciones" %}" class="nav__link">Programaciones</a></li>
-        <li><a href="{% url "inicio" %}" class="nav__link">Cerrar Sesion</a></li>
+        <li><a href="{% url 'listar_categorias' %}" class="nav__link active">Categorías</a></li>
+        <li><a href="{% url 'listar_destacados' %}" class="nav__link">Destacados</a></li>
+        <li><a href="{% url 'listar_programaciones' %}" class="nav__link">Programaciones</a></li>
+        <li>
+            <form action="{% url 'logout' %}" method="post" class="form__logout">
+                {% csrf_token %}
+                <button type="submit" class="nav__link link__logout">Cerrar Sesión</button>
+            </form>
+        </li>
     </ul>
 </nav>
+
 {% block content %}{% endblock %}
