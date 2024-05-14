@@ -12,35 +12,40 @@ Listado Programaciones
 
 <!-- Listado de programaciones -->
 <div class="table__container">
-  <table class="programacion__table">
-      <thead>
-          <tr>
-              <th>Fecha</th>
-              <th>Hora</th>
-              <th>Lugar</th>
-              <th>Categoría</th>
-              {% if es_profesor %}
-              <th>Acciones</th>
-              {% endif %}
-          </tr>
-      </thead>
-      <tbody>
-          {% for programacion in programaciones %}
-          <tr>
-              <td>{{ programacion.fecha }}</td>
-              <td>{{ programacion.hora }}</td>
-              <td>{{ programacion.lugar }}</td>
-              <td>{{ programacion.categoria }}</td>
-              {% if es_profesor %}
-              <td>
-                  <a href="{% url 'editar_programacion' programacion.id %}" class="link__option">Editar</a>
-                  <a href="{% url 'eliminar_programacion' programacion.id %}" class="link__option">Eliminar</a>
-              </td>
-              {% endif %}
-          </tr>
-          {% endfor %}
-      </tbody>
-  </table>
-</div>
+    <table class="programacion__table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Lugar</th>
+                <th>Categoría</th>
+                <th>Resultado</th>
+                <th>Equipo Rival</th>
+                {% if es_profesor %}
+                <th>Acciones</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for programacion in programaciones %}
+            <tr>
+                <td>{{ programacion.fecha }}</td>
+                <td>{{ programacion.hora }}</td>
+                <td>{{ programacion.lugar }}</td>
+                <td>{{ programacion.categoria }}</td>
+                <td>{{ programacion.resultado_local }} - {{ programacion.resultado_visitante }}</td>
+                <td>{{ programacion.equipo_rival }}</td>
+                {% if es_profesor %}
+                <td>
+                    <a href="{% url 'editar_programacion' programacion.id %}" class="link__option">Editar</a>
+                    <a href="{% url 'eliminar_programacion' programacion.id %}" class="link__option">Eliminar</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+  
 
 {% endblock %}

@@ -22,6 +22,21 @@ function allowOnlyNumbers(event) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Calcula y actualiza la edad de los usuarios al cargar la página
+    actualizarEdades();
+});
+
+function actualizarEdades() {
+    const usuarios = document.querySelectorAll('.category-item');
+
+    usuarios.forEach(function(usuario) {
+        const fechaNacimiento = new Date(usuario.dataset.fechaNacimiento);
+        const edad = calcularEdad(fechaNacimiento);
+        usuario.querySelector('.category-info').textContent += ' - ' + edad + ' años';
+    });
+}
+
 function calculateAge(event) {
     const birthdateInput = event.target;
     const birthdate = new Date(birthdateInput.value);

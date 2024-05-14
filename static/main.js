@@ -34,6 +34,21 @@ function allowOnlyNumbers(event) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+  // Calcula y actualiza la edad de los usuarios al cargar la página
+  actualizarEdades();
+});
+
+function actualizarEdades() {
+  const usuarios = document.querySelectorAll('.category-item');
+
+  usuarios.forEach(function(usuario) {
+      const fechaNacimiento = new Date(usuario.dataset.fechaNacimiento);
+      const edad = calcularEdad(fechaNacimiento);
+      usuario.querySelector('.category-info').textContent += ' - ' + edad + ' años';
+  });
+}
+
 function calculateAge(event) {
   const birthdateInput = event.target;
   const birthdate = new Date(birthdateInput.value);
@@ -59,6 +74,25 @@ function calculateAge(event) {
   }
 }
 
+document.getElementById('cerrarModal').addEventListener('click', function() {
+  document.getElementById('modalBusqueda').style.display = 'none';
+});
+
+// Mostrar el modal
+if (document.querySelectorAll('#modalBusqueda h3').length > 0) {
+  document.getElementById('modalBusqueda').style.display = 'block';
+}
+
+// document.getElementById('cerrarModal').addEventListener('click', function() {
+//   document.getElementById('modalBusqueda').style.display = 'none';
+// });
+
+// // Mostrar el modal
+// document.getElementById('formulario').addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   document.getElementById('nombre_busqueda').value = '';
+//   document.getElementById('modalBusqueda').style.display = 'block';
+// });
 
 // Asignar los eventos de teclado a los campos correspondientes
 document.getElementById('id_nombre').addEventListener('keydown', allowOnlyLetters);

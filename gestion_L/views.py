@@ -67,6 +67,27 @@ def listar_categorias(request):
     es_profesor = False
     if request.user.is_authenticated and hasattr(request.user, 'usuario') and request.user.usuario.rol == 'profesor':
         es_profesor = True
+
+    if request.method == 'POST':
+        nombre_busqueda = request.POST.get('nombre_busqueda')
+        if nombre_busqueda:
+            usuarios = Usuario.objects.filter(nombre__icontains=nombre_busqueda)
+            return render(request, 'list-categorias.html', {'usuarios': usuarios, 'usuarios_primera': usuarios_primera,
+                                                        'usuarios_baby':usuarios_baby,
+                                                        'usuarios_sub8':usuarios_sub8,
+                                                        'usuarios_sub10':usuarios_sub10,
+                                                        'usuarios_sub11':usuarios_sub11,
+                                                        'usuarios_sub12':usuarios_sub12,
+                                                        'usuarios_sub13':usuarios_sub13,
+                                                        'usuarios_sub14':usuarios_sub14,
+                                                        'usuarios_sub15':usuarios_sub15,
+                                                        'usuarios_sub16':usuarios_sub16,
+                                                        'usuarios_ascenso':usuarios_ascenso,
+                                                        'usuarios_femenina':usuarios_femenina,
+                                                        'es_profesor':es_profesor})
+    else:
+        usuarios = []
+
     return render(request, 'list-categorias.html', {'usuarios_primera': usuarios_primera,
                                                     'usuarios_baby':usuarios_baby,
                                                     'usuarios_sub8':usuarios_sub8,
@@ -80,6 +101,8 @@ def listar_categorias(request):
                                                     'usuarios_ascenso':usuarios_ascenso,
                                                     'usuarios_femenina':usuarios_femenina,
                                                     'es_profesor':es_profesor})
+
+
 
 @login_required
 def crear_programacion(request):
@@ -144,7 +167,7 @@ def editar_programacion(request, pk):
         form = ProgramacionForm(instance=programacion)
         
     return render(request, 'form/editar_programacion.html', {'form': form, 'programacion': programacion})
-  # Redirige a la página de listado de programaciones después de editar
+
     
 @login_required
 def eliminar_programacion(request, pk):

@@ -2,12 +2,41 @@
 {% load static %}
 {% block title %} Categorias {% endblock %}
 {% block content %}
+
+
+
+<form method="post" id="formulario" class="search__form">
+    {% csrf_token %}
+    <label for="nombre_busqueda" class="search__label">Buscar jugador:</label>
+    <input type="text" id="nombre_busqueda" name="nombre_busqueda" class="search__input">
+    <button type="submit" class="search__btn">Buscar</button>
+</form>
+
+
+
+<!-- Modal -->
+
+<div id="modalBusqueda" style="display: none;">
+  <h2>Resultados de la búsqueda</h2>
+{% for usuario in usuarios %}
+  <h3>{{ usuario.nombre }} {{ usuario.apellido }}</h3>
+  <p>Categoría: {{ usuario.categoria }}</p>
+  <p>Telefono de contacto: {{ usuario.telefono_contacto }}</p>
+  <p>No. Documento: {{ usuario.documento_identidad }}</p>
+{% empty %}
+  No se encontraron resultados
+{% endfor %}
+  <button id="cerrarModal">Cerrar</button>
+</div>
+
+
+
 <div class="category-container">
     <div class="category">
         <h2 class="category-title">Categoría Femenina</h2>
         <ul class="category-list">
             {% for usuario in usuarios_femenina %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -24,7 +53,7 @@
         <h2 class="category-title">Categoría Sub Baby</h2>
         <ul class="category-list">
             {% for usuario in usuarios_baby %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -41,7 +70,7 @@
         <h2 class="category-title">Categoría Sub 8</h2>
         <ul class="category-list">
             {% for usuario in usuarios_sub8 %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -58,7 +87,7 @@
         <h2 class="category-title">Categoría Sub 10</h2>
         <ul class="category-list">
             {% for usuario in usuarios_sub10 %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -75,7 +104,7 @@
         <h2 class="category-title">Categoría Sub 11</h2>
         <ul class="category-list">
             {% for usuario in usuarios_sub11 %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -92,7 +121,7 @@
         <h2 class="category-title">Categoría Sub 12</h2>
         <ul class="category-list">
             {% for usuario in usuarios_sub12 %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -109,7 +138,7 @@
         <h2 class="category-title">Categoría Sub 13</h2>
         <ul class="category-list">
             {% for usuario in usuarios_sub13 %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -126,7 +155,7 @@
         <h2 class="category-title">Categoría Sub 14</h2>
         <ul class="category-list">
             {% for usuario in usuarios_sub14 %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -143,7 +172,7 @@
         <h2 class="category-title">Categoría Sub 13</h2>
         <ul class="category-list">
             {% for usuario in usuarios_sub13 %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -160,7 +189,7 @@
         <h2 class="category-title">Categoría Sub 14</h2>
         <ul class="category-list">
             {% for usuario in usuarios_sub14 %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -177,7 +206,7 @@
         <h2 class="category-title">Categoría Ascenso</h2>
         <ul class="category-list">
             {% for usuario in usuarios_ascenso %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -194,7 +223,7 @@
         <h2 class="category-title">Categoría Primera</h2>
         <ul class="category-list">
             {% for usuario in usuarios_primera %}
-            <li class="category-item">
+            <li class="category-item" data-fecha-nacimiento="{{ usuario.fecha_nacimiento }}">
                 <span class="category-info">{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.documento_identidad }} - {{ usuario.edad }} años - {{ usuario.telefono_contacto }}</span>
                 {% if es_profesor %}
                 <div class="category-buttons">
@@ -206,8 +235,6 @@
             {% endfor %}
         </ul>
     </div>
-
-    <!-- Repite el mismo patrón para las demás categorías -->
 </div>
 {% endblock  %}
 

@@ -27,6 +27,7 @@ class UsuarioForm(forms.ModelForm):
 
             'edad': forms.NumberInput(attrs={'type':'number',
                                              'class':'form__control',
+                                             'readonly':'readonly'
                                             }),
             
 
@@ -75,10 +76,11 @@ class UsuarioForm(forms.ModelForm):
 class ProgramacionForm(forms.ModelForm):
     class Meta:
         model = Programacion
-        fields = ['fecha', 'hora', 'lugar', 'categoria']
+        fields = ['fecha', 'hora', 'lugar', 'categoria', 'equipo_rival', 'resultado_local', 'resultado_visitante']
         widgets = {
             'fecha': forms.DateInput(attrs={'type': 'date'}),
             'hora': forms.TimeInput(attrs={'type': 'time'}),
+            'equipo_rival':forms.TextInput(attrs={'type':'text'})
         }
 
 class UsuarioEditForm(forms.ModelForm):
