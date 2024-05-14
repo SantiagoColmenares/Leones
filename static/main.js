@@ -13,7 +13,7 @@ menuToggle.addEventListener('click', () => {
 // Función para permitir solo letras en los campos de texto
 function allowOnlyLetters(event) {
   const key = event.key;
-  const regex = /^[a-zA-Z\s]*$/; // Expresión regular para permitir solo letras y espacios
+  const regex = /^[a-zA-ZñÑ\s]*$/; // Expresión regular para permitir solo letras y espacios
   if (!regex.test(key)) {
       event.preventDefault(); // Evita que se teclee un carácter no permitido
   }
